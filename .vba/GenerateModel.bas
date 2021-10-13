@@ -263,8 +263,8 @@ cNotes = 16
 cGCODE = 17
 
 
-Progress_Box.Show vbModeless
-DoEvents
+'Progress_Box.Show vbModeless
+'DoEvents
 
 Progress_Box.Label1.Caption = "Beginning program"
 DoEvents
@@ -330,30 +330,30 @@ For i = 1 To iNumberOfFeatures
     Case "Line"
         Select Case arrFeatures(i, 2)
         Case "Cartesian"
-            If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        	If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
         Case "Polar"
-            If arrFeatures(i, 14) <> "" And IsNumeric(arrFeatures(i, 14)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+            If arrFeatures(i, 14) <> "" And IsNumeric(arrFeatures(i, 14)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
         End Select
     Case "Line equation"
-        If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
     Case "Line equation polar"
-        If arrFeatures(i, 14) <> "" And IsNumeric(arrFeatures(i, 14)) Then: MsgBox "Feature " & i & " has a numeric value for T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        If arrFeatures(i, 14) <> "" And IsNumeric(arrFeatures(i, 14)) Then: MsgBox "Feature " & i & " has a numeric value for T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
     Case "Circle/arc"
-        If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        If arrFeatures(i, 12) <> "" And IsNumeric(arrFeatures(i, 12)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
     Case "Rectangle"
-        If arrFeatures(i, 10) <> "" And IsNumeric(arrFeatures(i, 10)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        If arrFeatures(i, 10) <> "" And IsNumeric(arrFeatures(i, 10)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
     Case "Polygon"
-        If arrFeatures(i, 11) <> "" And IsNumeric(arrFeatures(i, 11)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End
+        If arrFeatures(i, 11) <> "" And IsNumeric(arrFeatures(i, 11)) Then: MsgBox "Feature " & i & " has a numeric value for E/F/T, which is not permitted and indicates the design was copied from an old version of FullControl - please correct this error": End If
     End Select
     'I added a Z term to the repeat rule for linear offsets
     If arrFeatures(i, 1) = "Repeat rule" Then
         If arrFeatures(i, 6) = "OffsetLinear" Or arrFeatures(i, 6) = "OffsetLinearIncrement" Or arrFeatures(i, 6) = "OffsetLinearIncrementGraded" Then
-            If arrFeatures(i, 9) = "YES" Or arrFeatures(i, 9) = "NO" Then: MsgBox "Feature " & i & " has a value of ""YES"" or ""NO"" for Zoffset, which indicates the design was copied from an old version of FullControl - please correct this error": End
+            If arrFeatures(i, 9) = "YES" Or arrFeatures(i, 9) = "NO" Then: MsgBox "Feature " & i & " has a value of ""YES"" or ""NO"" for Zoffset, which indicates the design was copied from an old version of FullControl - please correct this error": End If
         End If
     End If
     'I added autoretraction options and toolchange options
-    If Sheets("Main Sheet").Range("S12").Value <> "ToolChange ID" Then: MsgBox "Cell ""S12"" on the ""Main Sheet"" does not have the value ""ToolChange ID"" which indicates you're using a format for the settings section from a previous version of FullControl - please change to use the latest format for settings": End
-    If Sheets("Main Sheet").Range("S27").Value <> "AutoTravelRetraction?" Then: MsgBox "Cell ""S27"" on the ""Main Sheet"" does not have the value ""AutoTravelRetraction?"" which indicates you're using a format for the settings section from a previous version of FullControl - please change to use the latest format for settings": End
+    If Sheets("Main Sheet").Range("S12").Value <> "ToolChange ID" Then: MsgBox "Cell ""S12"" on the ""Main Sheet"" does not have the value ""ToolChange ID"" which indicates you're using a format for the settings section from a previous version of FullControl - please change to use the latest format for settings": End If
+    If Sheets("Main Sheet").Range("S27").Value <> "AutoTravelRetraction?" Then: MsgBox "Cell ""S27"" on the ""Main Sheet"" does not have the value ""AutoTravelRetraction?"" which indicates you're using a format for the settings section from a previous version of FullControl - please change to use the latest format for settings": End If
 Next i
 ''''''///////////////////////////////////////////
 
@@ -1004,10 +1004,10 @@ For i = 1 To iNumberOfFeatures
         
         strPrintTravelNew = "Print"
         
-        If IsNumeric(arrFeatures(i, 8)) Then: dblWidthNew = arrFeatures(i, 8): strWidthEquation = "": Else strWidthEquation = arrFeatures(i, 8)
-        If IsNumeric(arrFeatures(i, 9)) Then: dblHeightNew = arrFeatures(i, 9): strHeightEquation = "": Else strHeightEquation = arrFeatures(i, 9)
-        If IsNumeric(arrFeatures(i, 10)) Then: dblE = arrFeatures(i, 10): strEequation = "": Else strEequation = arrFeatures(i, 10)
-        If IsNumeric(arrFeatures(i, 11)) Then: dblFspeed = arrFeatures(i, 11): strFspeedEquation = "": Else strFspeedEquation = arrFeatures(i, 11)
+        If IsNumeric(arrFeatures(i, 8)) Then: dblWidthNew = arrFeatures(i, 8): strWidthEquation = "": Else strWidthEquation = arrFeatures(i, 8): End If
+        If IsNumeric(arrFeatures(i, 9)) Then: dblHeightNew = arrFeatures(i, 9): strHeightEquation = "": Else strHeightEquation = arrFeatures(i, 9): End If
+        If IsNumeric(arrFeatures(i, 10)) Then: dblE = arrFeatures(i, 10): strEequation = "": Else strEequation = arrFeatures(i, 10): End If
+        If IsNumeric(arrFeatures(i, 11)) Then: dblFspeed = arrFeatures(i, 11): strFspeedEquation = "": Else strFspeedEquation = arrFeatures(i, 11): End If
         
         strFeatIDrenumbered = "LineEquationFeat" & lCurrentLineEqFeature
         strFeatIDtree = i
@@ -1143,10 +1143,10 @@ For i = 1 To iNumberOfFeatures
         
         strPrintTravelNew = "Print"
         
-        If IsNumeric(arrFeatures(i, 10)) Then: dblWidthNew = arrFeatures(i, 10): strWidthEquation = "": Else strWidthEquation = arrFeatures(i, 10)
-        If IsNumeric(arrFeatures(i, 11)) Then: dblHeightNew = arrFeatures(i, 11): strHeightEquation = "": Else strHeightEquation = arrFeatures(i, 11)
-        If IsNumeric(arrFeatures(i, 12)) Then: dblE = arrFeatures(i, 12): strEequation = "": Else strEequation = arrFeatures(i, 12)
-        If IsNumeric(arrFeatures(i, 13)) Then: dblFspeed = arrFeatures(i, 13): strFspeedEquation = "": Else strFspeedEquation = arrFeatures(i, 13)
+        If IsNumeric(arrFeatures(i, 10)) Then: dblWidthNew = arrFeatures(i, 10): strWidthEquation = "": Else strWidthEquation = arrFeatures(i, 10): End If
+        If IsNumeric(arrFeatures(i, 11)) Then: dblHeightNew = arrFeatures(i, 11): strHeightEquation = "": Else strHeightEquation = arrFeatures(i, 11): End If
+        If IsNumeric(arrFeatures(i, 12)) Then: dblE = arrFeatures(i, 12): strEequation = "": Else strEequation = arrFeatures(i, 12): End If
+        If IsNumeric(arrFeatures(i, 13)) Then: dblFspeed = arrFeatures(i, 13): strFspeedEquation = "": Else strFspeedEquation = arrFeatures(i, 13): End If
         
         strFeatIDrenumbered = "LineEquationPolarFeat" & lCurrentLineEqPolarFeature
         strFeatIDtree = i
@@ -3265,69 +3265,69 @@ Sub ConvertRelativeToAbsoluteCoordintes(arrFeatures, i, dblCurrentX, dblCurrentY
     If arrFeatures(i, 1) = "Line" Then
         If arrFeatures(i, 2) = "Cartesian" Then
             'If X1, Y1, Z1 are relative, set the value to be the current value of X, Y, Z plus relative value
-            If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
-            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentZ + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1))
+            If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
+            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentZ + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1)): End If
             'If X2, Y2, Z2 are relative, set the value X1, Y1, Z1 plus relative value
-            If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = arrFeatures(i, 3) + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1))
-            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = arrFeatures(i, 4) + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1))
-            If Left(arrFeatures(i, 8), 1) = "R" Then: arrFeatures(i, 8) = arrFeatures(i, 5) + CDbl(Right(arrFeatures(i, 8), Len(arrFeatures(i, 8)) - 1))
+            If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = arrFeatures(i, 3) + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)): End If
+            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = arrFeatures(i, 4) + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1)): End If
+            If Left(arrFeatures(i, 8), 1) = "R" Then: arrFeatures(i, 8) = arrFeatures(i, 5) + CDbl(Right(arrFeatures(i, 8), Len(arrFeatures(i, 8)) - 1)): End If
         ElseIf arrFeatures(i, 2) = "Polar" Then
             'If X_centre, Y_centre, Z1 are relative, set the value to be the current value of X, Y, Z plus relative value
-            If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
-            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = dblCurrentZ + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1))
+            If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
+            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = dblCurrentZ + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1)): End If
             'If Z2 are relative, set the value Z1 plus relative value
-            If Left(arrFeatures(i, 10), 1) = "R" Then: arrFeatures(i, 10) = arrFeatures(i, 7) + CDbl(Right(arrFeatures(i, 10), Len(arrFeatures(i, 10)) - 1))
+            If Left(arrFeatures(i, 10), 1) = "R" Then: arrFeatures(i, 10) = arrFeatures(i, 7) + CDbl(Right(arrFeatures(i, 10), Len(arrFeatures(i, 10)) - 1)): End If
         End If
     End If
     If arrFeatures(i, 1) = "Line equation" Then
-        If Left(arrFeatures(i, 2), 1) = "R" And IsNumeric(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)) Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1))
-        If Left(arrFeatures(i, 3), 1) = "R" And IsNumeric(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)) Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-        If Left(arrFeatures(i, 4), 1) = "R" And IsNumeric(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)) Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
+        If Left(arrFeatures(i, 2), 1) = "R" And IsNumeric(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)) Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)): End If
+        If Left(arrFeatures(i, 3), 1) = "R" And IsNumeric(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)) Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+        If Left(arrFeatures(i, 4), 1) = "R" And IsNumeric(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)) Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
     End If
     If arrFeatures(i, 1) = "Line equation polar" Then
-        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1))
-        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-        If Left(arrFeatures(i, 6), 1) = "R" And IsNumeric(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)) Then: arrFeatures(i, 6) = dblCurrentZ + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1))
+        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)): End If
+        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+        If Left(arrFeatures(i, 6), 1) = "R" And IsNumeric(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)) Then: arrFeatures(i, 6) = dblCurrentZ + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)): End If
     End If
     If arrFeatures(i, 1) = "Rectangle" Then
         'If X1 and Y1 are relative, set the value to be the current value of X and Y plus relative value
-        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1))
-        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
+        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)): End If
+        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
         'If X2 and Y2 are relative, set to the value X1 and Y1 plus relative value
-        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = arrFeatures(i, 2) + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
-        If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = arrFeatures(i, 3) + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1))
+        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = arrFeatures(i, 2) + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
+        If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = arrFeatures(i, 3) + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1)): End If
         'If Z is relative, set the value to be the current value of Z plus relative value
-        If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = dblCurrentZ + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1))
+        If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = dblCurrentZ + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)): End If
     End If
     If arrFeatures(i, 1) = "Reflect" Then
         If arrFeatures(i, 3) = "Polar" Then
             'If X_centre and Y_centre are relative, set the value to be the current value of X and Y plus relative value
-            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentX + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
-            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentY + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1))
+            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentX + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
+            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentY + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1)): End If
         ElseIf arrFeatures(i, 3) = "XY" Then
             'If X1, Y1 are relative, set the value to be the current value of X, Y plus relative value
-            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentX + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
-            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentY + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1))
+            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentX + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
+            If Left(arrFeatures(i, 5), 1) = "R" Then: arrFeatures(i, 5) = dblCurrentY + CDbl(Right(arrFeatures(i, 5), Len(arrFeatures(i, 5)) - 1)): End If
             'If X2, Y2 are relative, set the value X1, Y1 plus relative value
-            If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = arrFeatures(i, 4) + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1))
-            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = arrFeatures(i, 5) + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1))
+            If Left(arrFeatures(i, 6), 1) = "R" Then: arrFeatures(i, 6) = arrFeatures(i, 4) + CDbl(Right(arrFeatures(i, 6), Len(arrFeatures(i, 6)) - 1)): End If
+            If Left(arrFeatures(i, 7), 1) = "R" Then: arrFeatures(i, 7) = arrFeatures(i, 5) + CDbl(Right(arrFeatures(i, 7), Len(arrFeatures(i, 7)) - 1)): End If
         ElseIf arrFeatures(i, 3) = "Z" Then
             'If X1, Y1 are relative, set the value to be the current value of X, Y plus relative value
-            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
+            If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
         End If
     End If
     If arrFeatures(i, 1) = "Polar repeat" Then
         'If Xcentre, Ycentre are relative, set the value to be the current value of X, Y plus relative value
-        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
+        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentX + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentY + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
     End If
     If arrFeatures(i, 1) = "Circle/arc" _
     Or arrFeatures(i, 1) = "Polygon" Then
-        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1))
-        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1))
-        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1))
+        If Left(arrFeatures(i, 2), 1) = "R" Then: arrFeatures(i, 2) = dblCurrentX + CDbl(Right(arrFeatures(i, 2), Len(arrFeatures(i, 2)) - 1)): End If
+        If Left(arrFeatures(i, 3), 1) = "R" Then: arrFeatures(i, 3) = dblCurrentY + CDbl(Right(arrFeatures(i, 3), Len(arrFeatures(i, 3)) - 1)): End If
+        If Left(arrFeatures(i, 4), 1) = "R" Then: arrFeatures(i, 4) = dblCurrentZ + CDbl(Right(arrFeatures(i, 4), Len(arrFeatures(i, 4)) - 1)): End If
     End If
     
 End Sub
@@ -3390,7 +3390,7 @@ bFeatOUT = False
 '''''strFeatIDtree = arrCommands(cIDtree, lCurrentCommandBeingRepeated)
 
 'If the user has written feature numbers (no "Y" or "N") to describe the features covered by the rule, do this...
-If strFeatureList Like "*Y*" = False And strFeatureList Like "*N*" = False Then
+If ((strFeatureList Like "*Y*") = False And (strFeatureList Like "*N*") = False) Then
     'Split the dashes in the list of features ONLY if the user is describing in terms of feature numbers, not parent inclusion/exclusion criteria
     Call ReplaceDashesInString(strFeatureList)
     arrFeaturesWrittenByUser = Split(strFeatureList, ",")
